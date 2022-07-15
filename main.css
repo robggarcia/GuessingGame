@@ -221,3 +221,10 @@ footer, p {
         background: #1BE7FF;
     }
 }
+
+/* MEDIA QUERY FOR SMALL SCREENS */
+@media only screen and (max-width: 600px) {
+    #game {
+        min-height: 400px;
+    }
+}
