@@ -223,6 +223,7 @@ footer, p {
 /* MEDIA QUERY FOR SMALL SCREENS */
 @media only screen and (max-width: 600px) {
     #game {
+        height: 300px;
         min-height: 370px;
     }
 
