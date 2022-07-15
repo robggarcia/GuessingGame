@@ -23,7 +23,6 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 19%;
-    /* min-height: 500px; */
     border-radius: 8px 26px;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
 }
@@ -48,7 +47,6 @@ body {
 
 .input {
     border: 2px dashed #388895;
-    /* background-color: #388895; */
     background: #f4f4f4;
     width: 65%;
     padding-top: 20px;
@@ -77,7 +75,6 @@ input:focus {
 }
 
 #reset, #hint {
-    /* background-color: #dddb76; */
     background: #e5f571;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
     padding: 10px;
@@ -103,7 +100,8 @@ input:hover, button:hover {
     font-weight: bolder;
 }
 
-/* Chrome, Safari, Edge, Opera */
+
+/* REMOVE THE OUTER SPIN BUTTON FOR INPUT on Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -225,6 +223,18 @@ footer, p {
 /* MEDIA QUERY FOR SMALL SCREENS */
 @media only screen and (max-width: 600px) {
     #game {
-        min-height: 400px;
+        min-height: 370px;
+    }
+
+    .col {
+        height: 370px;
+    }
+
+    .main-text {
+        font-size: 40px;
+    }
+
+    .message {
+        font-size: 0.8em;
     }
 }
