@@ -10,12 +10,11 @@ body {
 
 #game {
     height: 80vh;
+    min-height: 500px;
     width: 80vw;
-    /* background: coral; */
     display: flex;
     justify-content: space-around;
-    margin: 20px auto;
-    border-radius: 20px;
+    margin: 20px auto 10px;
 }
 
 .col {
@@ -24,14 +23,14 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 19%;
+    /* min-height: 500px; */
     border-radius: 8px 26px;
-    /* background: #ef694d; */
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
 }
 
 .main-text {
     font-family: 'Syne', sans-serif;
-    font-size: 9.5vw;
+    font-size: 9.3vw;
 }
 
 .entry {
@@ -56,7 +55,7 @@ body {
     padding-bottom: 20px;
     border-radius: 5px 20px;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4em;
+    font-size: 1.2em;
     text-align: center;
 }
 
@@ -67,7 +66,7 @@ body {
 
 input:focus {
     outline: none;
-    border: 2px dashed yellow;
+    border: 2px dashed #e5f571;
 
 }
 
@@ -89,7 +88,7 @@ input:focus {
 }
 
 #message {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 input:hover, button:hover {
@@ -118,6 +117,7 @@ input[type=number] {
 
 footer, p {
     font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
     padding-left: 10px;
 }
 
@@ -163,4 +163,61 @@ footer, p {
     background-size: 100% 200%;
     background-position: bottom;
     transition: background-position 0.5s ease-in-out;
+}
+
+/* ANIMATE THE BACKGROUND IF WIN */
+.blink {
+    animation: blink 5s infinite;
+}
+
+@keyframes blink {
+    0% {
+        background: #1BE7FF;
+    }
+
+    20% {
+        background: #6EEB83;
+    }
+
+    40% {
+        background: #E4FF1A;
+    }
+
+    60% {
+        background: #FFB800;
+    }
+
+    80% {
+        background: #FF5714;
+    }
+
+    100% {
+        background: #1BE7FF;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        background: #1BE7FF;
+    }
+
+    20% {
+        background: #6EEB83;
+    }
+
+    40% {
+        background: #E4FF1A;
+    }
+
+    60% {
+        background: #FFB800;
+    }
+
+    80% {
+        background: #FF5714;
+    }
+
+    100% {
+        background: #1BE7FF;
+    }
 }

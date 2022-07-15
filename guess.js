@@ -1,13 +1,3 @@
-/* 
-
-Write your guess-game code here! Don't forget to look at the test specs as a guide. You can run the specs
-by running "npm test".
-
-In this file, you will also include the event listeners that are needed to interact with your HTML file when
-a user clicks a button or adds a guess to the input field.
-
-*/
-
 // define a function to randomly generate the winning number (between 1 and 100)
 // input: none
 // output: an integer
@@ -82,7 +72,6 @@ function newGame() {
       }
     },
     newGame: function () {
-      console.log("call for a new game");
       game = newGame();
       return game;
     },
@@ -98,21 +87,10 @@ function newGame() {
   return game;
 }
 
-/* function newGame() {
-    this.playersGuess = null;
-    this.pastGuesses = [];
-    this.winningNumber = generateWinningNumber();
-  }
-  
-  newGame.newGame = function() {
-      return new newGame;
-  } */
-
 let game = newGame();
-console.log(game);
-console.log(game.winningNumber);
-
-console.log(game.provideHint());
+// console.log(game);
+// console.log(game.winningNumber);
+// console.log(game.provideHint());
 
 // add event listeners to make the website interactive
 // when the user submits a guess, it is saved inside the game object and checked against the winningNumber
@@ -122,24 +100,32 @@ entryBlock[2].classList.toggle("hide");
 entryBlock[3].classList.toggle("hide");
 entryBlock[4].classList.toggle("hide");
 
+let body = document.querySelector("body");
+
 let column = document.getElementsByClassName("col");
 let input = document.getElementsByClassName("input");
 let submitButton = document.getElementsByClassName("submit");
 let msg = document.getElementsByClassName("message");
 let defaultMessage = "PICK A NUMBER BETWEEN 1 AND 100";
 
+// EVENT LISTENERS FOR EACH NEW SUBMIT BUTTON
 submitButton[0].addEventListener("click", function () {
   msg[0].textContent = game.playersGuessSubmission(input[0].value);
 
   if (game.playersGuess == game.winningNumber) {
     hintMessage.textContent = "CONGRATULATIONS!";
+    body.classList.toggle("blink");
   } else if (game.pastGuesses.length === 1) {
     column[0].classList.toggle("g-col");
     input[0].classList.toggle("g-col");
     entryBlock[1].classList.toggle("hide");
     submitButton[0].disabled = true;
     hintButton.disabled = false;
-    hintMessage.textContent = "";
+    if (game.isLower()) {
+      hintMessage.textContent = "GUESS HIGHER";
+    } else {
+      hintMessage.textContent = "GUESS LOWER";
+    }
   } else {
     input[0].value = "";
   }
@@ -153,13 +139,18 @@ submitButton[1].addEventListener("click", function () {
 
   if (game.playersGuess == game.winningNumber) {
     hintMessage.textContent = "CONGRATULATIONS!";
+    body.classList.toggle("blink");
   } else if (game.pastGuesses.length === 2) {
     column[1].classList.toggle("u-col");
     input[1].classList.toggle("u-col");
     entryBlock[2].classList.toggle("hide");
     submitButton[1].disabled = true;
     hintButton.disabled = false;
-    hintMessage.textContent = "";
+    if (game.isLower()) {
+      hintMessage.textContent = "GUESS HIGHER";
+    } else {
+      hintMessage.textContent = "GUESS LOWER";
+    }
   } else {
     input[1].value = "";
   }
@@ -173,13 +164,18 @@ submitButton[2].addEventListener("click", function () {
 
   if (game.playersGuess == game.winningNumber) {
     hintMessage.textContent = "CONGRATULATIONS!";
+    body.classList.toggle("blink");
   } else if (game.pastGuesses.length === 3) {
     column[2].classList.toggle("e-col");
     input[2].classList.toggle("e-col");
     entryBlock[3].classList.toggle("hide");
     submitButton[2].disabled = true;
     hintButton.disabled = false;
-    hintMessage.textContent = "";
+    if (game.isLower()) {
+      hintMessage.textContent = "GUESS HIGHER";
+    } else {
+      hintMessage.textContent = "GUESS LOWER";
+    }
   } else {
     input[2].value = "";
   }
@@ -193,13 +189,18 @@ submitButton[3].addEventListener("click", function () {
 
   if (game.playersGuess == game.winningNumber) {
     hintMessage.textContent = "CONGRATULATIONS!";
+    body.classList.toggle("blink");
   } else if (game.pastGuesses.length === 4) {
     column[3].classList.toggle("s1-col");
     input[3].classList.toggle("s1-col");
     entryBlock[4].classList.toggle("hide");
     submitButton[3].disabled = true;
     hintButton.disabled = false;
-    hintMessage.textContent = "";
+    if (game.isLower()) {
+      hintMessage.textContent = "GUESS HIGHER";
+    } else {
+      hintMessage.textContent = "GUESS LOWER";
+    }
   } else {
     input[3].value = "";
   }
@@ -213,6 +214,7 @@ submitButton[4].addEventListener("click", function () {
 
   if (game.playersGuess == game.winningNumber) {
     hintMessage.textContent = "CONGRATULATIONS!";
+    body.classList.toggle("blink");
   } else if (game.pastGuesses.length === 5) {
     column[4].classList.toggle("s2-col");
     input[4].classList.toggle("s2-col");
@@ -281,6 +283,10 @@ resetButton.addEventListener("click", function () {
 
   if (!entryBlock[4].classList.contains("hide")) {
     entryBlock[4].classList.toggle("hide");
+  }
+
+  if (body.classList.contains("blink")) {
+    body.classList.toggle("blink");
   }
 
   hintButton.disabled = false;
