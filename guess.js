@@ -52,10 +52,10 @@ function newGame() {
     },
     playersGuessSubmission: function (guess) {
       if (guess > 100 || guess < 1 || isNaN(guess)) {
-        throw "That is an invalid guess.";
+        // throw "That is an invalid guess.";
+        return "That is an invalid guess.";
       }
       this.playersGuess = guess;
-      console.log(this.checkGuess());
       return this.checkGuess();
     },
     checkGuess: function () {
@@ -87,14 +87,11 @@ function newGame() {
       return game;
     },
     provideHint: function () {
-      let hintArray = [this.winningNumber];
-      let i = 1;
-      while (i < 3) {
-        hintArray.push(generateWinningNumber());
-        i += 1;
-      }
-      shuffle(hintArray);
-      return hintArray;
+      return shuffle([
+        this.winningNumber,
+        generateWinningNumber(),
+        generateWinningNumber(),
+      ]);
     },
   };
 
@@ -120,90 +117,170 @@ console.log(game.provideHint());
 // add event listeners to make the website interactive
 // when the user submits a guess, it is saved inside the game object and checked against the winningNumber
 
-let entryBlock1 = document.getElementById("entryBlock1");
-let entryBlock2 = document.getElementById("entryBlock2");
-entryBlock2.classList.toggle("hide");
-let entryBlock3 = document.getElementById("entryBlock3");
-entryBlock3.classList.toggle("hide");
-let entryBlock4 = document.getElementById("entryBlock4");
-entryBlock4.classList.toggle("hide");
-let entryBlock5 = document.getElementById("entryBlock5");
-entryBlock5.classList.toggle("hide");
+let entryBlock = document.getElementsByClassName("entry");
+entryBlock[1].classList.toggle("hide");
+entryBlock[2].classList.toggle("hide");
+entryBlock[3].classList.toggle("hide");
+entryBlock[4].classList.toggle("hide");
 
-let input1 = document.getElementById("input1");
-let input2 = document.getElementById("input2");
-let input3 = document.getElementById("input3");
-let input4 = document.getElementById("input4");
-let input5 = document.getElementById("input5");
+let column = document.getElementsByClassName("col");
+let input = document.getElementsByClassName("input");
+let submitButton = document.getElementsByClassName("submit");
+let msg = document.getElementsByClassName("message");
+// let defaultMessage = "PICK A NUMBER BETWEEN 1 AND 100";
 
-let submitButton1 = document.getElementById("submit1");
-let submitButton2 = document.getElementById("submit2");
-let submitButton3 = document.getElementById("submit3");
-let submitButton4 = document.getElementById("submit4");
-let submitButton5 = document.getElementById("submit5");
+submitButton[0].addEventListener("click", function () {
+  msg[0].textContent = game.playersGuessSubmission(input[0].value);
 
-let guess1 = document.getElementById("guess1");
-let guess2 = document.getElementById("guess2");
-let guess3 = document.getElementById("guess3");
-let guess4 = document.getElementById("guess4");
-let guess5 = document.getElementById("guess5");
-
-let msg1 = document.getElementById("msg1");
-
-submitButton1.addEventListener("click", function () {
-  console.log("this is where the click event is called");
-  console.log(game.playersGuessSubmission(guess1.value));
-  msg1.textContent = "is this working";
   if (game.pastGuesses.length === 1) {
-    entryBlock2.classList.toggle("hide");
+    column[0].classList.toggle("g-col");
+    input[0].classList.toggle("g-col");
+
+    entryBlock[1].classList.toggle("hide");
+    submitButton[0].disabled = true;
+    hintButton.disabled = false;
+    hintMessage.textContent = "";
+  } else {
+    input[0].value = "";
   }
 
-  /*   switch (game.pastGuesses.length) {
-    case 1:
-      entryBlock2.classList.toggle("hide");
-      break;
-    case 2:
-      entryBlock3.classList.toggle("hide");
-      break;
-    case 3:
-      let entryBlock4 = document.getElementById("entryBlock4");
-      break;
-    case 4:
-      entryBlock5.classList.toggle("hide");
-      break;
-    case 5:
-      guess5.textContent = game.pastGuesses[4];
-      break;
-  } */
+  console.log(game.playersGuess);
+  console.log(game.pastGuesses);
+});
+
+submitButton[1].addEventListener("click", function () {
+  msg[1].textContent = game.playersGuessSubmission(input[1].value);
+
+  if (game.pastGuesses.length === 2) {
+    column[1].classList.toggle("u-col");
+    input[1].classList.toggle("u-col");
+
+    entryBlock[2].classList.toggle("hide");
+    submitButton[1].disabled = true;
+    hintButton.disabled = false;
+    hintMessage.textContent = "";
+  } else {
+    input[1].value = "";
+  }
+
+  console.log(game.playersGuess);
+  console.log(game.pastGuesses);
+});
+
+submitButton[2].addEventListener("click", function () {
+  msg[2].textContent = game.playersGuessSubmission(input[2].value);
+
+  if (game.pastGuesses.length === 3) {
+    column[2].classList.toggle("e-col");
+    input[2].classList.toggle("e-col");
+
+    entryBlock[3].classList.toggle("hide");
+    submitButton[2].disabled = true;
+    hintButton.disabled = false;
+    hintMessage.textContent = "";
+  } else {
+    input[2].value = "";
+  }
+
+  console.log(game.playersGuess);
+  console.log(game.pastGuesses);
+});
+
+submitButton[3].addEventListener("click", function () {
+  msg[3].textContent = game.playersGuessSubmission(input[3].value);
+
+  if (game.pastGuesses.length === 4) {
+    column[3].classList.toggle("s1-col");
+    input[3].classList.toggle("s1-col");
+
+    entryBlock[4].classList.toggle("hide");
+    submitButton[3].disabled = true;
+    hintButton.disabled = false;
+    hintMessage.textContent = "";
+  } else {
+    input[3].value = "";
+  }
+
+  console.log(game.playersGuess);
+  console.log(game.pastGuesses);
+});
+
+submitButton[4].addEventListener("click", function () {
+  msg[4].textContent = game.playersGuessSubmission(input[4].value);
+
+  if (game.pastGuesses.length === 5) {
+    column[4].classList.toggle("s2-col");
+    input[4].classList.toggle("s2-col");
+
+    submitButton[4].disabled = true;
+    hintButton.disabled = true;
+    hintMessage.textContent = "RESET TO PLAY AGAIN";
+  } else {
+    input[4].value = "";
+  }
+
   console.log(game.playersGuess);
   console.log(game.pastGuesses);
 });
 
 let resetButton = document.getElementById("reset");
+
 console.log(resetButton);
 resetButton.addEventListener("click", function () {
   console.log("reset button clicked");
   game = newGame();
-  guess1.value = "";
-  guess2.value = "";
-  if (!entryBlock2.classList.contains("hide")) {
-    entryBlock2.classList.toggle("hide");
+  input[0].value = "";
+  input[1].value = "";
+  input[2].value = "";
+  input[3].value = "";
+  input[4].value = "";
+
+  msg[0].textContent = defaultMessage;
+  msg[1].textContent = defaultMessage;
+  msg[2].textContent = defaultMessage;
+  msg[3].textContent = defaultMessage;
+  msg[4].textContent = defaultMessage;
+
+  column[0].classList.toggle("g-col");
+  input[0].classList.toggle("g-col");
+
+  column[1].classList.toggle("u-col");
+  input[1].classList.toggle("u-col");
+
+  column[2].classList.toggle("e-col");
+  input[2].classList.toggle("e-col");
+
+  column[3].classList.toggle("s1-col");
+  input[3].classList.toggle("s1-col");
+
+  column[4].classList.toggle("s2-col");
+  input[4].classList.toggle("s2-col");
+
+  if (!entryBlock[1].classList.contains("hide")) {
+    entryBlock[1].classList.toggle("hide");
   }
 
   guess3.value = "";
-  if (!entryBlock3.classList.contains("hide")) {
-    entryBlock3.classList.toggle("hide");
+  if (!entryBlock[2].classList.contains("hide")) {
+    entryBlock[2].classList.toggle("hide");
   }
 
   guess4.value = "";
-  if (!entryBlock4.classList.contains("hide")) {
-    entryBlock4.classList.toggle("hide");
+  if (!entryBlock[3].classList.contains("hide")) {
+    entryBlock[3].classList.toggle("hide");
   }
 
   guess5.value = "";
-  if (!entryBlock5.classList.contains("hide")) {
-    entryBlock5.classList.toggle("hide");
+  if (!entryBlock[4].classList.contains("hide")) {
+    entryBlock[4].classList.toggle("hide");
   }
+
+  hintButton.disabled = false;
+  submitButton[0].disabled = false;
+  submitButton[1].disabled = false;
+  submitButton[2].disabled = false;
+  submitButton[3].disabled = false;
+  submitButton[4].disabled = false;
 
   hintMessage.textContent = "";
 });
@@ -212,5 +289,8 @@ let hintButton = document.getElementById("hint");
 let hintMessage = document.getElementById("message");
 let hintCount = 0;
 hintButton.addEventListener("click", function () {
-  hintMessage.textContent = "TRY ONE OF THESE: " + game.provideHint();
+  let newHint = game.provideHint();
+  console.log(newHint);
+  hintMessage.textContent = `TRY EITHER ${newHint[0]}, ${newHint[1]}, OR ${newHint[2]}`;
+  hintButton.disabled = true;
 });

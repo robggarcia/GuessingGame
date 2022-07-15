@@ -79,7 +79,7 @@ input:focus {
 
 #reset, #hint {
     /* background-color: #dddb76; */
-    background: #ef694d;
+    background: #e5f571;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
     padding: 10px;
     margin: 10px;
@@ -123,4 +123,24 @@ footer, p {
 
 .hide {
     display: none;
+}
+
+.g-col {
+    background-color: #84e7f2;
+}
+
+.u-col {
+    background-color: #9de6a9;
+}
+
+.e-col {
+    background-color: #e5f571;
+}
+
+.s1-col {
+    background-color: #f8d068;
+}
+
+.s2-col {
+    background-color: #fb6428;
 }
