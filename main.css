@@ -232,10 +232,19 @@ footer, p {
     }
 
     .main-text {
-        font-size: 40px;
+        font-size: 8vw;
+        margin: 10px;
+    }
+
+    .input {
+        font-size: .8em;
+    }
+
+    .submit {
+        font-size: 0.6em;
     }
 
     .message {
-        font-size: 0.8em;
+        font-size: 0.6em;
     }
 }
