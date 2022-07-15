@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guessing Game</title>
+    <link rel="stylesheet" href="main.css".css">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Syne:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="guess.js" defer></script>
+  </head>
+  <body>
+    <div id="game">
+      <div class="col g-col">
+        <h1 class="main-text">M</h1>
+        <div class="entry" id="entryBlock1">
+          <p class="message" id="msg1">PICK A NUMBER BETWEEN 1 AND 100</p>
+          <input type="number" placeholder="- - -" class="input" id="guess1" />
+          <button class="submit" id="submit1">1 OF 5</button>
+        </div>
+        <h1 class="main-text">G</h1>
+      </div>
+      <div class="col u-col">
+        <h1 class="main-text">A</h1>
+        <div class="entry" id="entryBlock2">
+          <p class="message" id="msg2">PICK A NUMBER BETWEEN 1 AND 100</p>
+          <input type="number" placeholder="- - -" class="input" id="guess2" />
+          <button class="submit" id="submit2">2 OF 5</button>
+        </div>
+
+        <h1 class="main-text">U</h1>
+      </div>
+      <div class="col e-col">
+        <h1 class="main-text">K</h1>
+        <div class="entry" id="entryBlock3">
+          <p class="message" id="msg3">PICK A NUMBER BETWEEN 1 AND 100</p>
+          <input type="number" placeholder="- - -" class="input" id="guess3" />
+          <button class="submit" id="submit3">3 OF 5</button>
+        </div>
+
+        <h1 class="main-text">E</h1>
+      </div>
+      <div class="col s1-col">
+        <h1 class="main-text">E</h1>
+        <div class="entry" id="entryBlock4">
+          <p class="message" id="msg4">PICK A NUMBER BETWEEN 1 AND 100</p>
+          <input type="number" placeholder="- - -" class="input" id="guess4" />
+          <button class="submit" id="submit4">4 OF 5</button>
+        </div>
+
+        <h1 class="main-text">S</h1>
+      </div>
+      <div class="col s2-col">
+        <h1 class="main-text">A</h1>
+        <div class="entry" id="entryBlock5">
+          <p class="message" id="msg5">PICK A NUMBER BETWEEN 1 AND 100</p>
+          <input type="number" placeholder="- - -" class="input" id="guess5" />
+          <button class="submit" id="submit5">5 OF 5</button>
+        </div>
+
+        <h1 class="main-text">S</h1>
+      </div>
+    </div>
+    <div class="help-area">
+      <p id="message"></p>
+      <div class="extra-buttons">
+        <button id="reset">RESET GAME</button>
+        <button id="hint">TAKE A HINT</button>
+      </div>
+    </div>
+    <footer>
+      <p>created by rob garcia, 2022</p>
+    </footer>
+  </body>
+</html>

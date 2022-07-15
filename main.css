@@ -1,0 +1,126 @@
+* {
+    box-sizing: border box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #e4f2ef;
+}
+
+#game {
+    height: 80vh;
+    width: 80vw;
+    /* background: coral; */
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    border-radius: 20px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 19%;
+    border-radius: 8px 26px;
+    /* background: #ef694d; */
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
+}
+
+.main-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 9.5vw;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.message {
+    text-align: center;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+}
+
+.input {
+    border: 2px dashed #388895;
+    /* background-color: #388895; */
+    background: #e4f2ef;
+    width: 65%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 5px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.input::placeholder {
+    color: #388895;
+
+}
+
+input:focus {
+    outline: none;
+    border: 2px dashed yellow;
+
+}
+
+.help-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reset, #hint {
+    /* background-color: #dddb76; */
+    background: #ef694d;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    border-radius: 5px 10px;
+}
+
+#message {
+    font-size: 1.5em;
+}
+
+input:hover, button:hover {
+    cursor: pointer;
+}
+
+.submit {
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+footer, p {
+    font-family: 'Poppins', sans-serif;
+    padding-left: 10px;
+}
+
+.hide {
+    display: none;
+}
