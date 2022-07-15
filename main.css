@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #e4f2ef;
+    background-color: #f4f4f4;
 }
 
 #game {
@@ -50,7 +50,7 @@ body {
 .input {
     border: 2px dashed #388895;
     /* background-color: #388895; */
-    background: #e4f2ef;
+    background: #f4f4f4;
     width: 65%;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -126,21 +126,41 @@ footer, p {
 }
 
 .g-col {
-    background-color: #84e7f2;
+    /* background-color: #84e7f2; */
+    background-image: linear-gradient(to top, #84e7f2 50%, transparent 50%);
+    background-size: 100% 200%;
+    background-position: bottom;
+    transition: background-position 0.5s ease-in-out;
 }
 
 .u-col {
-    background-color: #9de6a9;
+    /* background-color: #9de6a9; */
+    background-image: linear-gradient(to top, #9de6a9 50%, transparent 50%);
+    background-size: 100% 200%;
+    background-position: bottom;
+    transition: background-position 0.5s ease-in-out;
 }
 
 .e-col {
-    background-color: #e5f571;
+    /* background-color: #e5f571; */
+    background-image: linear-gradient(to top, #e5f571 50%, transparent 50%);
+    background-size: 100% 200%;
+    background-position: bottom;
+    transition: background-position 0.5s ease-in-out;
 }
 
 .s1-col {
-    background-color: #f8d068;
+    /* background-color: #f8d068; */
+    background-image: linear-gradient(to top, #f8d068 50%, transparent 50%);
+    background-size: 100% 200%;
+    background-position: bottom;
+    transition: background-position 0.5s ease-in-out;
 }
 
 .s2-col {
-    background-color: #fb6428;
+    /* background-color: #fb6428; */
+    background-image: linear-gradient(to top, #fb6428 50%, transparent 50%);
+    background-size: 100% 200%;
+    background-position: bottom;
+    transition: background-position 0.5s ease-in-out;
 }
